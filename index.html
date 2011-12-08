@@ -8,7 +8,16 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 </head>
 <style>
-	html{
+	.bg1{
+		background: url(./images/bg/1.jpg) no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./images/bg/1.jpg', sizingMethod='scale');
+		-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./images/bg/1.jpg', sizingMethod='scale')";
+	}
+	.bg2{
 		background: url(./images/bg/2.jpg) no-repeat center center fixed;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
@@ -16,6 +25,15 @@
 		background-size: cover;
 		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./images/bg/2.jpg', sizingMethod='scale');
 		-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./images/bg/2.jpg', sizingMethod='scale')";
+	}
+	.bg3{
+		background: url(./images/bg/3.jpg) no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./images/bg/3.jpg', sizingMethod='scale');
+		-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./images/bg/3.jpg', sizingMethod='scale')";
 	}
 	body{
 		background-color:transparent;
@@ -25,12 +43,18 @@
 	}
 	h1{
 	}
+	.topbar{
+		padding-top:30px;
+	}
+	.fill{
+		padding:0px;
+	}
 	div.citation h1{
 		text-align:center;
 		color:#fff;
 		font-size:3em;
-		text-shadow: 1px 1px 4px #444444;
-		filter: dropshadow(color=#444444, offx=1, offy=1);
+		text-shadow: 1px 1px 4px #252525;
+		filter: dropshadow(color=#252525, offx=1, offy=1);
 		font-size:4.2em;
 		line-height:1.2em;
 		font-family: 'Poly', serif;
@@ -54,12 +78,19 @@
 	}
 </style>
 <script>
+	shuffle = function(o){ //v1.0
+		for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+		return o;
+	};
+	$(function(){
+		$('body').addClass('bg' + shuffle([1, 2])[0]);
+	})
 </script>
 <body>
     <div class="topbar">
       <div class="fill">
         <div class="container">
-          <a class="brand" href="#">Tony Allaire - ébéniste et artisant </a>
+          <a class="brand" href="#"><strong>Tony Allaire</strong> - ébéniste et artisant </a>
           <ul class="nav">
             <li class="active pull-right"><a href="#">Accueil</a></li>
             <li><a href="#about">Réalisations</a></li>
@@ -71,7 +102,7 @@
     <div class="container">
       <div class="content">
         <div class="citation">
-          <h1>« Pour des meubles de qualité artisanale conçu et assembler avec passion! »</h1>
+          <h1>« Pour des meubles de qualité artisanale conçus et assemblés avec passion! »</h1>
         </div>
       </div>
     </div> <!-- /container -->
