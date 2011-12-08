@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Poly' rel='stylesheet' type='text/css'>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="./jquery.backstretch.min.js"></script>
 </head>
 <style>
 	.bg1{
@@ -46,9 +47,6 @@
 	.topbar{
 		padding-top:30px;
 	}
-	.fill{
-		padding:0px;
-	}
 	div.citation h1{
 		text-align:center;
 		color:#fff;
@@ -83,7 +81,8 @@
 		return o;
 	};
 	$(function(){
-		$('body').addClass('bg' + shuffle([1, 2])[0]);
+		$.backstretch("./images/bg/1.jpg", {speed: 150});
+		//$('body').addClass('bg' + shuffle([1, 2])[0]);
 	})
 </script>
 <body>
