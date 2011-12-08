@@ -7,6 +7,8 @@
 	<link href='http://fonts.googleapis.com/css?family=Poly' rel='stylesheet' type='text/css'>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="./jquery.backstretch.min.js"></script>
+	<script src="./underscore-min.js"></script>
+	<script src="./backbone-min.js"></script>
 </head>
 <style>
 	.bg1{
@@ -49,7 +51,7 @@
 	}
 	div.citation h1{
 		text-align:center;
-		color:#fff;
+		color:#fff;§
 		font-size:3em;
 		text-shadow: 1px 1px 4px #252525;
 		filter: dropshadow(color=#252525, offx=1, offy=1);
@@ -72,7 +74,7 @@
 		border:none;
 	}
 	.realisation{
-		width:100%;
+		width:100%;	
 	}
 </style>
 <script>
@@ -81,9 +83,13 @@
 		return o;
 	};
 	$(function(){
-		$.backstretch("./images/bg/1.jpg", {speed: 150});
+		$.backstretch("./images/bg/"+shuffle([1,2])[0]+".jpg", {speed: 150});
 		//$('body').addClass('bg' + shuffle([1, 2])[0]);
-	})
+	});
+
+
+
+
 </script>
 <body>
     <div class="topbar">
