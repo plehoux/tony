@@ -43,11 +43,31 @@
 	};
 	$(function(){
 		$.backstretch("./images/bg/"+shuffle([1,2])[0]+".jpg", {speed: 150});
-		//$('body').addClass('bg' + shuffle([1, 2])[0]);
+		Tony = new TonyRouter();
+  		Backbone.history.start({pushState: true});
 	});
 
+	var TonyRouter = Backbone.Router.extend({
 
+	  routes: {
+	    "":"root",
+	    "realisations":"realisations",
+	    "contact":"contact"
+	  },
 
+	  root: function() {
+	    alert(2);
+	  },
+
+	  realisations: function() {
+	    alert(1);
+	  },
+
+	  contact: function(){
+	  	alert(3);
+	  }
+
+	});
 
 </script>
 <body>
@@ -56,9 +76,9 @@
         <div class="container">
           <a class="brand" href="#"><strong>Tony Allaire</strong> - ébéniste et artisant </a>
           <ul class="nav">
-            <li class="active pull-right"><a href="#">Accueil</a></li>
-            <li><a href="#about">Réalisations</a></li>
-            <li><a href="#contact">Où me trouver?</a></li>
+            <li class="active pull-right"><a href="#" onclick="Tony.navigate('', true)">Accueil</a></li>
+            <li><a href="#" onclick="Tony.navigate('realisations', true)">Réalisations</a></li>
+            <li><a href="#" onclick="Tony.navigate('contact', true)">Où me trouver?</a></li>
           </ul>
         </div>
       </div>
@@ -69,6 +89,6 @@
           <h1>« Pour des meubles de qualité artisanale conçus et assemblés avec passion! »</h1>
         </div>
       </div>
-    </div> <!-- /container -->
+    </div>
 </body>
 </html>
