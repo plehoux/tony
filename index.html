@@ -5,14 +5,16 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Poly' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="./jquery.fancybox-1.3.4.css" media="screen" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="./jquery.backstretch.min.js"></script>
+	<script src="./jquery.fancybox-1.3.4.js"></script>
 	<script src="./underscore-min.js"></script>
 	<script src="./backbone-min.js"></script>
 </head>
 <style>
 	body{
-		background-color:transparent;
+		background-color:#fff;
 	}
 	.content{
 		margin-top:150px;
@@ -21,6 +23,7 @@
 	}
 	.topbar{
 		padding-top:30px;
+		z-index:999;
 	}
 	div.accueil h1{
 		text-align:center;
@@ -51,6 +54,14 @@
 		-moz-box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.3);
 		box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.3);
 	}
+	.realisations img{
+		cursor:pointer;
+		margin-bottom:8px;
+		border:#fff solid 4px;
+		-webkit-box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.5);
+		-moz-box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.5);
+		box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.5);
+	}
 </style>
 <script>
 	app = {};
@@ -72,6 +83,7 @@
 	}
 
 	app.hideAllPages = function(){
+		$('#backstretch').css('opacity','1')
 		$('.page').each(function(){
 			$(this).hide();
 		});
@@ -104,6 +116,8 @@
 	  	document.title = "Tony Allaire : Réalisations";
 	  	app.switchBg();
 	  	app.selectMenuItem(2);
+	  	$('.realisations').show();
+	  	$("a:has(img)").fancybox();
 		},
 
 	  contact: function(){
@@ -135,12 +149,43 @@
     </div>
     <div class="container">
       <div id="main" class="content">
+
+
+
+
         <div class="page accueil">
           <h1>« Pour des meubles de qualité artisanale conçus et assemblés avec passion! »</h1>
         </div>
+
+
+
+
         <div class="page realisations">
-          <h1>Réalisations</h1>
+			<div class="row">
+	        	<div class="span10 offset3">
+	        		<div class="row">
+	        			<div class="span4">
+	        				<a href="./images/realisations/1.jpg"><img src="./images/realisations/1_thb.jpg" /></a>
+	        			</div>
+		        		<div class="span4">
+		        			<a href="./images/realisations/2.jpg"><img src="./images/realisations/2_thb.jpg" /></a>
+	        			</div>
+	        		</div>
+       				<div class="row">
+	        			<div class="span4">
+		        			<a href="./images/realisations/3.jpg"><img src="./images/realisations/3_thb.jpg" /></a>
+	        			</div>
+		        		<div class="span104">
+		        			<a href="./images/realisations/1.jpg"><img src="./images/realisations/1_thb.jpg" /></a>
+	        			</div>
+	        		</div>
+	        	</div>
+	        </div>
         </div>
+
+
+
+
         <div class="page contact">
 	        <div class="row">
 	        	<div class="span10 offset3">
@@ -148,23 +193,28 @@
 	        			<div class="span5">
 	        				<br />
 		        			<address>
-				          	<span class="label notice">Addresse de l'atelier:</span><br /><br />
-				          	340 Rue Joly<br />
-										Québec, QC G1L 1P1<br />
-				          </address>
+				          		<span class="label notice">Addresse de l'atelier:</span><br /><br />
+				          		340 Rue Joly<br />
+								Québec, QC G1L 1P1<br />
+				            </address>
 	        			</div>
-									<br />
-		        			<div class="span5">
-									<address>
-		          		<span class="label success">Contact</span><br /><br />
-				          tony.allaire.ebeniste@gmail.com<br/>
-				          (418) 264-3687
-				          </address>
+		        		<div class="span5">
+		        			<br />
+							<address>
+		          				<span class="label success">Contact</span><br /><br />
+				          		tony.allaire.ebeniste@gmail.com<br/>
+				          		(418) 264-3687
+				            </address>
 	        			</div>
 	        		</div>
 	        	</div>
 	        </div>
         </div>
+
+
+
+
+
       </div>
     </div>
 </body>
