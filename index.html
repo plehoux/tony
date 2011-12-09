@@ -22,7 +22,7 @@
 	.topbar{
 		padding-top:30px;
 	}
-	div.citation h1{
+	div.accueil h1{
 		text-align:center;
 		color:#fff;§
 		font-size:3em;
@@ -35,16 +35,39 @@
 	.page-header{
 		border:none;
 	}
+	ul.nav li {
+		font-size:1.1em;
+	}
 </style>
 <script>
-	shuffle = function(o){ //v1.0
-		for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
-		return o;
+	app = {};
+	app.data = {};
+	app.data.bg_possibilities = [1,2];
+	app.data.bg = null;
+
+	app.switchBg = function() {
+		$('#backstretch').remove();
+		app.data.bg = _.shuffle(_.without(app.data.bg_possibilities, app.data.bg))[0];
+		$.backstretch("./images/bg/"+app.data.bg+".jpg", {speed: 250});	
 	};
+
+	app.selectMenuItem = function(child){
+		$('.topbar .nav li').each(function(li){
+			$(this).removeClass('active')
+		});
+		$('.topbar .nav li:nth-child('+child+')').addClass('active')
+	}
+
+	app.hideAllPages = function(){
+		$('.page').each(function(){
+			$(this).hide();
+		});
+	};
+
 	$(function(){
-		$.backstretch("./images/bg/"+shuffle([1,2])[0]+".jpg", {speed: 150});
-		Tony = new TonyRouter();
-  		Backbone.history.start({pushState: true});
+	app.hideAllPages();
+		app.router = new TonyRouter();
+  		Backbone.history.start({root: "/~plehoux/tony/"});
 	});
 
 	var TonyRouter = Backbone.Router.extend({
@@ -53,19 +76,33 @@
 	    "":"root",
 	    "realisations":"realisations",
 	    "contact":"contact"
-	  },
+	  },	
 
 	  root: function() {
-	    alert(2);
+	  	app.hideAllPages();
+	  	$('.accueil').show();
+	  	document.title = "Tony Allaire: Artisant ébéniste"
+	  	app.switchBg();
+	  	app.selectMenuItem(1);
 	  },
 
 	  realisations: function() {
-	    alert(1);
-	  },
+	  	app.hideAllPages();
+	  	document.title = "Tony Allaire : Réalisations";
+	  	app.switchBg();
+	  	app.selectMenuItem(2);
+		},
 
 	  contact: function(){
-	  	alert(3);
-	  }
+	  	app.hideAllPages();
+	  	document.title = "Tony Allaire : Où me trouver?";
+	  	if($('#backstretch').length == 0) {
+	  		$('body').append('<div id="backstretch" style="position:fixed;top:0;left:0;z-index:-99999;width:100%;height:'+$(window).height()+'px;"></div>');
+	  	}
+	  	$('#backstretch').html('<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.ca/maps?f=q&amp;source=s_q&amp;hl=fr&amp;geocode=&amp;q=tony+allaire&amp;aq=&amp;sll=49.891235,-97.15369&amp;sspn=48.835041,113.818359&amp;vpsrc=0&amp;ie=UTF8&amp;hq=tony+allaire&amp;hnear=&amp;ll=46.830214,-71.25447&amp;spn=0.071946,0.071946&amp;t=m&amp;output=embed&iwloc=near"></iframe>');
+	  	app.selectMenuItem(3);
+	  	$('.contact').show();
+		}
 
 	});
 
@@ -76,17 +113,23 @@
         <div class="container">
           <a class="brand" href="#"><strong>Tony Allaire</strong> - ébéniste et artisant </a>
           <ul class="nav">
-            <li class="active pull-right"><a href="#" onclick="Tony.navigate('', true)">Accueil</a></li>
-            <li><a href="#" onclick="Tony.navigate('realisations', true)">Réalisations</a></li>
-            <li><a href="#" onclick="Tony.navigate('contact', true)">Où me trouver?</a></li>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="./#realisations">Réalisations</a></li>
+            <li><a href="./#contact">Où me trouver?</a></li>
           </ul>
         </div>
       </div>
     </div>
     <div class="container">
-      <div class="content">
-        <div class="citation">
+      <div id="main" class="content">
+        <div class="page accueil">
           <h1>« Pour des meubles de qualité artisanale conçus et assemblés avec passion! »</h1>
+        </div>
+        <div class="page realisations">
+          <h1>Réalisations</h1>
+        </div>
+        <div class="page contact">
+          <h1>Contact</h1>
         </div>
       </div>
     </div>
