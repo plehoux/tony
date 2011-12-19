@@ -73,6 +73,12 @@
 		-moz-box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.5);
 		box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.5);
 	}
+	.realisations h2{
+		text-shadow: 1px 1px 4px #252525;
+		filter: dropshadow(color=#252525, offx=1, offy=1);
+		color:#fff;
+		margin:25px 0 25px 25px;	
+	}
 </style>
 <script>
 	app = {};
@@ -128,7 +134,7 @@
 	  	app.switchBg();
 	  	app.selectMenuItem(2);
 	  	$('.realisations').show();
-	  	$("a:has(img)").fancybox();
+	  	$("a:has(img)").fancybox({'titlePosition':'inside'});
 		},
 
 	  contact: function(){
@@ -137,7 +143,7 @@
 	  	if($('#backstretch').length == 0) {
 	  		$('body').append('<div id="backstretch" style="position:fixed;top:0;left:0;z-index:-99999;width:100%;height:'+$(window).height()+'px;"></div>');
 	  	}
-	  	$('#backstretch').html('<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.ca/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=tony+allaire&amp;aq=&amp;sll=49.891235,-97.15369&amp;sspn=47.489197,113.994141&amp;vpsrc=6&amp;ie=UTF8&amp;hq=tony+allaire&amp;hnear=&amp;ll=46.830214,-71.25447&amp;spn=0.071946,0.071946&amp;t=m&amp;output=embed&iwloc=near"></iframe>');
+	  	$('#backstretch').html('<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.ca/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=tony+allaire&amp;aq=&amp;sll=49.891235,-97.15369&amp;sspn=47.489197,113.994141&amp;vpsrc=6&amp;ie=UTF8&amp;hq=tony+allaire&amp;hnear=&amp;ll=46.830214,-71.25447&amp;spn=0.071946,0.071946&amp;output=embed&iwloc=near"></iframe>');
 	  	app.selectMenuItem(3);
 	  	$('.contact').show();
 		}
@@ -177,21 +183,65 @@
 
         <div class="page realisations">
 			<div class="row">
-	        	<div class="span10 offset3">
+	        	<div class="span16">
 	        		<div class="row">
+	        			<h2>Escalier de bois (2010)</h2>
 	        			<div class="span4">
-	        				<a href="./images/realisations/1.jpg"><img src="./images/realisations/1_thb.jpg" /></a>
+	        				<a href="./images/realisations/1_1.jpg" rel="escalier" title="Escalier de bois et de fer forgé."><img src="./images/realisations/1_1_t.jpg" /></a>
 	        			</div>
 		        		<div class="span4">
-		        			<a href="./images/realisations/2.jpg"><img src="./images/realisations/2_thb.jpg" /></a>
+		        			<a href="./images/realisations/1_2.jpg" rel="escalier" title="Escalier de bois et de fer forgé."><img src="./images/realisations/1_2_t.jpg" /></a>
+	        			</div>
+	        			<div class="span4">
+		        			<a href="./images/realisations/1_3.jpg" rel="escalier" title="Escalier de bois et de fer forgé."><img src="./images/realisations/1_3_t.jpg" /></a>
+	        			</div>
+	        			<div class="span4">
+		        			<a href="./images/realisations/1_4.jpg" rel="escalier" title="Escalier de bois et de fer forgé."><img src="./images/realisations/1_4_t.jpg" /></a>
 	        			</div>
 	        		</div>
        				<div class="row">
+       					<h2>Cuisine de bois (2009)</h2>
 	        			<div class="span4">
-		        			<a href="./images/realisations/3.jpg"><img src="./images/realisations/3_thb.jpg" /></a>
+	        				<a href="./images/realisations/2_1.jpg" rel="cuisine" title="Cuisine de bois."><img src="./images/realisations/2_1_t.jpg" /></a>
 	        			</div>
-		        		<div class="span104">
-		        			<a href="./images/realisations/1.jpg"><img src="./images/realisations/1_thb.jpg" /></a>
+		        		<div class="span4">
+		        			<a href="./images/realisations/2_2.jpg" rel="cuisine" title="Cuisine de bois."><img src="./images/realisations/2_2_t.jpg" /></a>
+	        			</div>
+	        			<div class="span4">
+		        			<a href="./images/realisations/2_3.jpg" rel="cuisine" title="Cuisine de bois."><img src="./images/realisations/2_3_t.jpg" /></a>
+	        			</div>
+	        		</div>
+    				<div class="row">
+       					<h2>Escalier de bois (2009)</h2>
+	        			<div class="span4">
+	        				<a href="./images/realisations/3_1.jpg" rel="escalier2" title="Escalier de bois."><img src="./images/realisations/3_1_t.jpg" /></a>
+	        			</div>
+		        		<div class="span4">
+		        			<a href="./images/realisations/3_2.jpg" rel="escalier2" title="Escalier de bois."><img src="./images/realisations/3_2_t.jpg" /></a>
+	        			</div>
+	        			<div class="span4">
+		        			<a href="./images/realisations/3_3.jpg" rel="escalier2" title="Escalier de bois."><img src="./images/realisations/3_3_t.jpg" /></a>
+	        			</div>
+	        		</div>
+					<div class="row">
+       					<h2>Escalier de bois (2008)</h2>
+	        			<div class="span4">
+	        				<a href="./images/realisations/4_1.jpg" rel="escalier3" title="Escalier de bois."><img src="./images/realisations/4_1_t.jpg" /></a>
+	        			</div>
+		        		<div class="span4">
+		        			<a href="./images/realisations/4_2.jpg" rel="escalier3" title="Escalier de bois."><img src="./images/realisations/4_2_t.jpg" /></a>
+	        			</div>
+	        			<div class="span4">
+		        			<a href="./images/realisations/4_3.jpg" rel="escalier3" title="Escalier de bois."><img src="./images/realisations/4_3_t.jpg" /></a>
+	        			</div>
+	        		</div>
+					<div class="row">
+       					<h2>Projets divers</h2>
+	        			<div class="span4">
+	        				<a href="./images/realisations/5_1.jpg" rel="divers" title="Escalier de bois."><img src="./images/realisations/5_1_t.jpg" /></a>
+	        			</div>
+		        		<div class="span4">
+		        			<a href="./images/realisations/5_2.jpg" rel="divers" title="Escalier de bois."><img src="./images/realisations/5_2_t.jpg" /></a>
 	        			</div>
 	        		</div>
 	        	</div>
